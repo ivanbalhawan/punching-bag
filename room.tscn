@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cws5g5rs11lnf"]
+
+[ext_resource type="Texture2D" uid="uid://b2bi0rm6kdp8j" path="res://icon.svg" id="1_tkss3"]
+[ext_resource type="PackedScene" uid="uid://vngkb0wit5bc" path="res://character/character.tscn" id="2_nq207"]
+[ext_resource type="PackedScene" uid="uid://3poeyamgn0vu" path="res://punching_bag/punching_bag.tscn" id="3_ksoe0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_se1n7"]
+size = Vector2(1920, 120)
+
+[node name="Room" type="Node2D"]
+position = Vector2(960, 1024)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_se1n7")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(15, 1)
+texture = ExtResource("1_tkss3")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_nq207")]
+position = Vector2(-640, -256)
+
+[node name="Node2D" parent="." instance=ExtResource("3_ksoe0")]
+position = Vector2(64, -192)

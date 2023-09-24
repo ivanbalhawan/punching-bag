@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://x2p5sdl0134u"]
+
+[ext_resource type="Script" path="res://punching_bag/punching_bag_body.gd" id="1_e2qm2"]
+[ext_resource type="Texture2D" uid="uid://b2bi0rm6kdp8j" path="res://icon.svg" id="1_t5p73"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qqejd"]
+friction = 0.4
+bounce = 0.55
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny6mk"]
+size = Vector2(128, 128)
+
+[node name="punching_bag_body" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_qqejd")
+contact_monitor = true
+script = ExtResource("1_e2qm2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.129412, 1, 1)
+texture = ExtResource("1_t5p73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ny6mk")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -8.0
+offset_right = 40.0
+offset_bottom = 18.0
+text = "KALM"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_ny6mk")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_shape_entered" from="Hurtbox" to="." method="_on_hurtbox_area_shape_entered"]

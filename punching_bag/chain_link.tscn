@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv0w4700cs32b"]
+
+[ext_resource type="Texture2D" uid="uid://b2bi0rm6kdp8j" path="res://icon.svg" id="1_3omqs"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pr7jw"]
+a = Vector2(0, -32)
+b = Vector2(0, 32)
+
+[node name="chain_link" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0625, 0.5)
+texture = ExtResource("1_3omqs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+shape = SubResource("SegmentShape2D_pr7jw")

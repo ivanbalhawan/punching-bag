@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://3poeyamgn0vu"]
+
+[ext_resource type="PackedScene" uid="uid://x2p5sdl0134u" path="res://punching_bag/punching_bag_body.tscn" id="1_lfwkn"]
+[ext_resource type="PackedScene" uid="uid://bv0w4700cs32b" path="res://punching_bag/chain_link.tscn" id="2_b5tww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fhso"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="punching_bag_body" parent="." instance=ExtResource("1_lfwkn")]
+
+[node name="chain_link" parent="." instance=ExtResource("2_b5tww")]
+position = Vector2(0, -96)
+
+[node name="chain_link2" parent="." instance=ExtResource("2_b5tww")]
+position = Vector2(0, -160)
+
+[node name="chain_link3" parent="." instance=ExtResource("2_b5tww")]
+position = Vector2(0, -224)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, -64)
+node_a = NodePath("../chain_link")
+node_b = NodePath("../punching_bag_body")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(0, -128)
+node_a = NodePath("../chain_link2")
+node_b = NodePath("../chain_link")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(0, -192)
+node_a = NodePath("../chain_link3")
+node_b = NodePath("../chain_link2")
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(0, -256)
+node_a = NodePath("../mount_point")
+node_b = NodePath("../chain_link3")
+
+[node name="mount_point" type="StaticBody2D" parent="."]
+position = Vector2(0, -256)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mount_point"]
+shape = SubResource("RectangleShape2D_7fhso")
