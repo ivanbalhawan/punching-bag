@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://vngkb0wit5bc"]
+[gd_scene load_steps=6 format=3 uid="uid://vngkb0wit5bc"]
 
 [ext_resource type="Script" path="res://character/CharacterBody2D.gd" id="1_yav5t"]
 [ext_resource type="Texture2D" uid="uid://b2bi0rm6kdp8j" path="res://icon.svg" id="2_0wx7t"]
+[ext_resource type="Script" path="res://HitBox.gd" id="3_bksil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2s3j"]
 size = Vector2(128, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jken6"]
-size = Vector2(49, 33)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsla0"]
+size = Vector2(96, 32)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_yav5t")
@@ -38,13 +39,14 @@ shape = SubResource("RectangleShape2D_f2s3j")
 wait_time = 0.41
 one_shot = true
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
+script = ExtResource("3_bksil")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(64, -16)
-shape = SubResource("RectangleShape2D_jken6")
+shape = SubResource("RectangleShape2D_hsla0")
 disabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
