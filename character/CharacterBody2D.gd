@@ -8,16 +8,18 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var orientation = 1
 @onready var hitbox = $HitBox/CollisionShape2D
+@onready var collision_shape = $CollisionShape2D
 @onready var label = $Label
 @onready var timer = $Timer
-@onready var sprite = $Sprite2D
+@onready var sprite = $character_sprite
+@onready var animation = $AnimationPlayer
 @export var push_force = 500
 
 var is_on_floor = false
 
 func punch():
     label.text = "I PUNCH"
-    hitbox.set_disabled(false)
+    animation.play("punch")
     timer.start()
 
 
@@ -39,10 +41,12 @@ func _physics_process(delta):
         sprite.flip_h = true
         orientation = -1
         hitbox.position.x = - hitbox.position.x
+        collision_shape.position.x = - collision_shape.position.x
     if Input.is_action_just_pressed("move_right") and orientation != 1:
         orientation = 1
         sprite.flip_h = false
         hitbox.position.x = - hitbox.position.x
+        collision_shape.position.x = - collision_shape.position.x
 
     # Get the input direction and handle the movement/deceleration.
     # As good practice, you should replace UI actions with custom gameplay actions.
