@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://vngkb0wit5bc"]
+[gd_scene load_steps=11 format=3 uid="uid://vngkb0wit5bc"]
 
 [ext_resource type="Script" path="res://character/CharacterBody2D.gd" id="1_yav5t"]
 [ext_resource type="Texture2D" uid="uid://626vw3xhi4kl" path="res://character/assets/GUY_SPRITE SHEET.png" id="2_kjsdf"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cbc14g3k04wi7" path="res://assets/EFFECTS_SPRITE SHEET.png" id="4_3atrn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2s3j"]
-size = Vector2(117.857, 192)
+size = Vector2(194.928, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsla0"]
 size = Vector2(96, 32)
@@ -61,6 +61,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("character_sprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12)]
+}
 
 [sub_resource type="Animation" id="Animation_2xyr8"]
 resource_name = "punch"
@@ -112,17 +124,96 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-44.2857, 8), Vector2(-12.2857, 8), Vector2(3.71429, -8)]
+"values": [Vector2(-52.2857, 16), Vector2(27.7143, 16), Vector2(83.7143, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("character_sprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(83.7143, -2.08165e-12), Vector2(2.08165e-12, 2.08165e-12)]
+}
+
+[sub_resource type="Animation" id="Animation_ldnbq"]
+resource_name = "punch_left"
+length = 0.55
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 2, 1, 5, 0, 5, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("effects_sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 4, 3, 2, 1, 0, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("effects_sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(52.286, 16), Vector2(-27.714, 16), Vector2(-83.714, 2.08165e-12)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("character_sprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(-83.714, 2.08165e-12), Vector2(2.08165e-12, 2.08165e-12)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3p1rs"]
 _data = {
 "RESET": SubResource("Animation_ig6wc"),
-"punch": SubResource("Animation_2xyr8")
+"punch": SubResource("Animation_2xyr8"),
+"punch_left": SubResource("Animation_ldnbq")
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(4.28571, 2.08165e-12)
+collision_layer = 5
 script = ExtResource("1_yav5t")
 push_force = 1000
 
@@ -143,14 +234,14 @@ text = "I SLEEP"
 horizontal_alignment = 1
 
 [node name="character_sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_kjsdf")
 hframes = 6
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-23.2143, -2.08165e-12)
+position = Vector2(-10.8215, -2.08165e-12)
 shape = SubResource("RectangleShape2D_f2s3j")
 
 [node name="Timer" type="Timer" parent="."]
@@ -163,7 +254,7 @@ collision_mask = 0
 script = ExtResource("3_bksil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(27.7143, -16)
+position = Vector2(91.7143, -16)
 shape = SubResource("RectangleShape2D_hsla0")
 disabled = true
 

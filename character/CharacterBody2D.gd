@@ -9,19 +9,39 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var orientation = 1
 @onready var hitbox = $HitBox/CollisionShape2D
 @onready var collision_shape = $CollisionShape2D
-@onready var label = $Label
-@onready var timer = $Timer
-@onready var sprite = $character_sprite
+@onready var character_sprite = $character_sprite
+@onready var effects_sprite = $effects_sprite
 @onready var animation = $AnimationPlayer
-@export var push_force = 500
+@export var push_force = 300
+@export var max_collisions = 100
 
 var is_on_floor = false
 
 func punch():
-    label.text = "I PUNCH"
-    animation.play("punch")
-    timer.start()
+    if orientation == 1:
+        animation.play("punch")
+    elif orientation == -1:
+        animation.play("punch_left")
 
+# func handle_collision(collision: KinematicCollision2D):
+#     # Given a KinematicCollision2D object
+#     # calculate the appropriate collision response
+#     # and return a boolean indicating whether or not the collision is done
+#     if not collision:
+#         return true
+#     var collider = collision.get_collider()
+#     var remainder = collision.get_remainder()
+#     if collider is StaticBody2D:
+#         if collision.get_normal().y < 0:
+#             if not is_on_floor:
+#                 is_on_floor = true
+#                 velocity = velocity.slide(Vector2(0, 1))
+# 
+#     elif collider is RigidBody2D:
+#         print("here")
+#         var force = collision.get_normal() * -push_force
+#         collider.apply_force(force)
+#     return not remainder
 
 func _physics_process(delta):
     # Add the gravity.
@@ -38,15 +58,17 @@ func _physics_process(delta):
 
     # Handle character orientation
     if Input.is_action_just_pressed("move_left") and orientation != -1:
-        sprite.flip_h = true
+        character_sprite.flip_h = true
+        effects_sprite.flip_h = true
         orientation = -1
         hitbox.position.x = - hitbox.position.x
         collision_shape.position.x = - collision_shape.position.x
     if Input.is_action_just_pressed("move_right") and orientation != 1:
         orientation = 1
-        sprite.flip_h = false
+        character_sprite.flip_h = false
         hitbox.position.x = - hitbox.position.x
         collision_shape.position.x = - collision_shape.position.x
+        effects_sprite.flip_h = true
 
     # Get the input direction and handle the movement/deceleration.
     # As good practice, you should replace UI actions with custom gameplay actions.
@@ -59,15 +81,13 @@ func _physics_process(delta):
     var collision = move_and_collide(velocity * delta)
     if collision:
         var collider = collision.get_collider()
-
         if collider is StaticBody2D:
             if collision.get_normal().y < 0:
-                is_on_floor = true
-                velocity.y = 0
+                if not is_on_floor:
+                    is_on_floor = true
+                    velocity = velocity.slide(Vector2(0, 1))
 
-        elif collider is RigidBody2D:
-            var force = collision.get_normal() * -push_force
-            collider.apply_force(force)
+            
 
 
     # for i in get_slide_collision_count():
@@ -80,4 +100,3 @@ func _physics_process(delta):
 
 func _on_timer_timeout():
     hitbox.set_disabled(true)
-    label.text = "I SLEEP"

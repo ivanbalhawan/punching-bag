@@ -11,12 +11,18 @@
 
 [node name="chain_link" parent="." instance=ExtResource("2_b5tww")]
 position = Vector2(0, -96)
+collision_layer = 0
+collision_mask = 0
 
 [node name="chain_link2" parent="." instance=ExtResource("2_b5tww")]
 position = Vector2(0, -160)
+collision_layer = 0
+collision_mask = 0
 
 [node name="chain_link3" parent="." instance=ExtResource("2_b5tww")]
 position = Vector2(0, -224)
+collision_layer = 0
+collision_mask = 0
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(0, -64)
@@ -40,6 +46,8 @@ node_b = NodePath("../chain_link3")
 
 [node name="mount_point" type="StaticBody2D" parent="."]
 position = Vector2(0, -256)
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mount_point"]
 shape = SubResource("RectangleShape2D_7fhso")

@@ -6,7 +6,6 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qqejd"]
 friction = 0.4
-bounce = 0.55
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ny6mk"]
 size = Vector2(128, 128)
@@ -38,16 +37,18 @@ _data = {
 
 [node name="punching_bag_body" type="RigidBody2D"]
 position = Vector2(-8, 0)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 6
+collision_mask = 6
 physics_material_override = SubResource("PhysicsMaterial_qqejd")
+max_contacts_reported = 5
 contact_monitor = true
 script = ExtResource("1_e2qm2")
+damping_factor = 0.9
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.129412, 1, 1)
-position = Vector2(4, 16)
-scale = Vector2(0.8, 0.8)
+position = Vector2(8.00001, 16)
+scale = Vector2(0.588957, 0.746667)
 texture = ExtResource("2_ivegl")
 hframes = 6
 frame = 5
