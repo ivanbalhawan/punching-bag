@@ -14,14 +14,17 @@ var orientation = 1
 @onready var animation = $AnimationPlayer
 @export var push_force = 300
 @export var max_collisions = 100
-
+@onready var audio_player = $AudioStreamPlayer2D
+@onready var audio_player_jump = $AudioStreamPlayer2D_jump
 var is_on_floor = false
 
 func punch():
     if orientation == 1:
         animation.play("punch")
+        audio_player.play()
     elif orientation == -1:
         animation.play("punch_left")
+        audio_player.play()
 
 # func handle_collision(collision: KinematicCollision2D):
 #     # Given a KinematicCollision2D object
@@ -54,6 +57,7 @@ func _physics_process(delta):
     if Input.is_action_just_pressed("jump"):
         if is_on_floor:
             velocity.y = JUMP_VELOCITY
+            audio_player_jump.play()
             is_on_floor = false
 
     # Handle character orientation

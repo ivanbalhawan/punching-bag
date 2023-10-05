@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://x2p5sdl0134u"]
+[gd_scene load_steps=10 format=3 uid="uid://x2p5sdl0134u"]
 
 [ext_resource type="Script" path="res://punching_bag/punching_bag_body.gd" id="1_e2qm2"]
 [ext_resource type="Texture2D" uid="uid://c2u1q668l5u2q" path="res://assets/BAG_SPRITE SHEET.png" id="2_ivegl"]
 [ext_resource type="Script" path="res://HurtBox.gd" id="3_bbor4"]
+[ext_resource type="AudioStream" uid="uid://b2cpui1k0o0sn" path="res://assets/audio/bag.wav" id="4_jkk57"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qqejd"]
 friction = 0.4
@@ -80,3 +81,6 @@ shape = SubResource("RectangleShape2D_p8ici")
 libraries = {
 "": SubResource("AnimationLibrary_2c65w")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jkk57")

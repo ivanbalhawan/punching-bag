@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://vngkb0wit5bc"]
+[gd_scene load_steps=13 format=3 uid="uid://vngkb0wit5bc"]
 
 [ext_resource type="Script" path="res://character/CharacterBody2D.gd" id="1_yav5t"]
 [ext_resource type="Texture2D" uid="uid://626vw3xhi4kl" path="res://character/assets/GUY_SPRITE SHEET.png" id="2_kjsdf"]
 [ext_resource type="Script" path="res://HitBox.gd" id="3_bksil"]
 [ext_resource type="Texture2D" uid="uid://cbc14g3k04wi7" path="res://assets/EFFECTS_SPRITE SHEET.png" id="4_3atrn"]
+[ext_resource type="AudioStream" uid="uid://cundg5bg5mbfs" path="res://assets/audio/grunt.wav" id="5_gp0pw"]
+[ext_resource type="AudioStream" uid="uid://ddwv2b2nwoctn" path="res://assets/audio/jump.wav" id="6_hx3ph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2s3j"]
 size = Vector2(194.928, 192)
@@ -269,5 +271,14 @@ scale = Vector2(0.376513, 0.545455)
 texture = ExtResource("4_3atrn")
 hframes = 6
 frame = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gp0pw")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2D_jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_hx3ph")
+volume_db = -8.0
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
