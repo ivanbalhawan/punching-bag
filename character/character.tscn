@@ -73,6 +73,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(2.08165e-12, 2.08165e-12)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:shape")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_f2s3j")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CollisionShape2D:shape:size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(214.286, 189.881)]
+}
 
 [sub_resource type="Animation" id="Animation_2xyr8"]
 resource_name = "punch"
@@ -126,6 +150,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [Vector2(27.684, 7), Vector2(75.554, 3), Vector2(25.914, 19), Vector2(67.614, 17.43)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:shape")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.2, 0.25, 0.3, 0.35, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_f2s3j"), SubResource("RectangleShape2D_f2s3j"), SubResource("RectangleShape2D_f2s3j"), SubResource("RectangleShape2D_f2s3j"), SubResource("RectangleShape2D_f2s3j"), SubResource("RectangleShape2D_f2s3j"), SubResource("RectangleShape2D_f2s3j"), SubResource("RectangleShape2D_f2s3j")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:shape:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.2, 0.25, 0.3, 0.35, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(263.11, 189.881), Vector2(237.964, 189.881), Vector2(156.773, 189.005), Vector2(173.994, 189.005), Vector2(134.801, 189.005), Vector2(169.837, 189.005), Vector2(153.803, 187.225), Vector2(225.657, 186.631)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3p1rs"]
 _data = {
@@ -164,8 +212,8 @@ hframes = 6
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-21.0034, 8.0357)
-scale = Vector2(1, 1)
+position = Vector2(-10.2891, 9.66552)
+scale = Vector2(1.00236, 1.00299)
 shape = SubResource("RectangleShape2D_f2s3j")
 
 [node name="Timer" type="Timer" parent="."]
