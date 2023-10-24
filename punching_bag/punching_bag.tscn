@@ -8,6 +8,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="punching_bag_body" parent="." instance=ExtResource("1_lfwkn")]
+scale = Vector2(1, 1.00907)
 
 [node name="chain_link" parent="." instance=ExtResource("2_b5tww")]
 position = Vector2(0, -96)

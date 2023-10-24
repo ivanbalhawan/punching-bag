@@ -18,10 +18,8 @@ var orientation = 1
 var is_on_floor = false
 
 func punch():
-    if orientation == 1:
-        animation.play("punch")
-    elif orientation == -1:
-        animation.play("punch_left")
+    animation.play("punch")
+   
 
 # func handle_collision(collision: KinematicCollision2D):
 #     # Given a KinematicCollision2D object
