@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://x2p5sdl0134u"]
 
 [ext_resource type="Script" path="res://punching_bag/punching_bag_body.gd" id="1_e2qm2"]
-[ext_resource type="Texture2D" uid="uid://c3x8f80uoqh5d" path="res://assets/BAG_SPRITESHEET.png" id="2_pwyvw"]
+[ext_resource type="Texture2D" uid="uid://c3x8f80uoqh5d" path="res://assets/bag/sprites/bag_sprites.png" id="2_v0e5w"]
 [ext_resource type="Script" path="res://HurtBox.gd" id="3_bbor4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qqejd"]
@@ -49,7 +49,7 @@ damping_factor = 0.9
 modulate = Color(1, 0.129412, 1, 1)
 position = Vector2(8.00001, 16)
 scale = Vector2(0.588957, 0.746667)
-texture = ExtResource("2_pwyvw")
+texture = ExtResource("2_v0e5w")
 hframes = 6
 frame = 5
 

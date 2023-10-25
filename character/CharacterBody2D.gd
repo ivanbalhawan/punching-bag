@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const ACCELERATION = 10
+const TOP_SPEED = 800.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -17,33 +18,13 @@ var orientation = 1
 
 var is_on_floor = false
 
+func _ready():
+    animation.set_autoplay("idle")
+
 func punch():
     animation.play("punch")
-   
-
-# func handle_collision(collision: KinematicCollision2D):
-#     # Given a KinematicCollision2D object
-#     # calculate the appropriate collision response
-#     # and return a boolean indicating whether or not the collision is done
-#     if not collision:
-#         return true
-#     var collider = collision.get_collider()
-#     var remainder = collision.get_remainder()
-#     if collider is StaticBody2D:
-#         if collision.get_normal().y < 0:
-#             if not is_on_floor:
-#                 is_on_floor = true
-#                 velocity = velocity.slide(Vector2(0, 1))
-# 
-#     elif collider is RigidBody2D:
-#         print("here")
-#         var force = collision.get_normal() * -push_force
-#         collider.apply_force(force)
-#     return not remainder
 
 func _physics_process(delta):
-    # Add the gravity.
-    
     if not is_on_floor:
         velocity.y += gravity * delta
     if Input.is_action_just_pressed("punch"):
@@ -62,13 +43,23 @@ func _physics_process(delta):
         orientation = 1
         scale.x = -scale.x
 
-    # Get the input direction and handle the movement/deceleration.
-    # As good practice, you should replace UI actions with custom gameplay actions.
     var direction = Input.get_axis("move_left", "move_right")
     if direction:
-        velocity.x = direction * SPEED
+        if (
+            animation.get_current_animation() == "idle"
+            or not animation.is_playing()
+        ):
+            animation.stop()
+            animation.play("run")
+        velocity.x = move_toward(velocity.x, (direction * TOP_SPEED), ACCELERATION)
     else:
-        velocity.x = move_toward(velocity.x, 0, SPEED)
+        if (
+            animation.get_current_animation() == "run"
+            or not animation.is_playing()
+        ):
+            animation.stop()
+            animation.play("idle")
+        velocity.x = move_toward(velocity.x, 0, ACCELERATION)
 
     var collision = move_and_collide(velocity * delta)
     if collision:
