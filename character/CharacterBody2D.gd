@@ -56,17 +56,11 @@ func _physics_process(delta):
 
     # Handle character orientation
     if Input.is_action_just_pressed("move_left") and orientation != -1:
-        character_sprite.flip_h = true
-        effects_sprite.flip_h = true
         orientation = -1
-        hitbox.position.x = - hitbox.position.x
-        collision_shape.position.x = - collision_shape.position.x
+        scale.x = -scale.x
     if Input.is_action_just_pressed("move_right") and orientation != 1:
         orientation = 1
-        character_sprite.flip_h = false
-        hitbox.position.x = - hitbox.position.x
-        collision_shape.position.x = - collision_shape.position.x
-        effects_sprite.flip_h = true
+        scale.x = -scale.x
 
     # Get the input direction and handle the movement/deceleration.
     # As good practice, you should replace UI actions with custom gameplay actions.
