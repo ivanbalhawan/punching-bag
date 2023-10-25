@@ -23,7 +23,6 @@ shape = SubResource("RectangleShape2D_se1n7")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_nq207")]
 position = Vector2(-536, -216)
-max_collisions = 100
 
 [node name="Node2D" parent="." instance=ExtResource("3_ksoe0")]
 position = Vector2(120, -232)
