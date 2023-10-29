@@ -34,6 +34,6 @@ volume_db = -5.0
 autoplay = true
 bus = &"Music"
 
-[node name="AudioListener2D" type="AudioListener2D" parent="AudioStreamPlayer2D"]
-position = Vector2(67, -284)
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(64, -240)
 current = true
