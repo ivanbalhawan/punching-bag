@@ -1,12 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://vngkb0wit5bc"]
+[gd_scene load_steps=16 format=3 uid="uid://vngkb0wit5bc"]
 
 [ext_resource type="Script" path="res://character/CharacterBody2D.gd" id="1_yav5t"]
 [ext_resource type="Texture2D" uid="uid://do75qfhwvrexs" path="res://assets/character/sprites/idle_sprites.png" id="2_jsd5o"]
 [ext_resource type="Script" path="res://HitBox.gd" id="3_bksil"]
-[ext_resource type="AudioStream" uid="uid://cundg5bg5mbfs" path="res://assets/audio/grunt.wav" id="5_gp0pw"]
-[ext_resource type="AudioStream" uid="uid://ddwv2b2nwoctn" path="res://assets/audio/jump.wav" id="6_hx3ph"]
 [ext_resource type="Texture2D" uid="uid://cd2sraa1tb5g1" path="res://assets/character/sprites/punch_sprites.png" id="4_0tebu"]
+[ext_resource type="AudioStream" uid="uid://cundg5bg5mbfs" path="res://assets/audio/grunt.wav" id="5_gp0pw"]
 [ext_resource type="Texture2D" uid="uid://be22qis8w6xi5" path="res://assets/character/sprites/run_sprites.png" id="5_n1gov"]
+[ext_resource type="AudioStream" uid="uid://ddwv2b2nwoctn" path="res://assets/audio/jump.wav" id="6_hx3ph"]
 [ext_resource type="Texture2D" uid="uid://ot3tird16kjv" path="res://assets/character/sprites/punch_effects_sprites.png" id="6_yu0tq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2s3j"]
