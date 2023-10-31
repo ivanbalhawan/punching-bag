@@ -15,13 +15,16 @@ var orientation = 1
 @onready var animation = $AnimationPlayer
 @export var push_force = 300
 @export var max_collisions = 100
-
+@onready var audio_grunt = $AudioStreamPlayer2D_grunt
+@onready var audio_jump = $AudioStreamPlayer2D_jump
 var is_on_floor = false
+
 
 func _ready():
     animation.set_autoplay("idle")
-
+        
 func punch():
+    audio_grunt.play()
     animation.play("punch")
 
 func _physics_process(delta):
@@ -33,6 +36,7 @@ func _physics_process(delta):
     if Input.is_action_just_pressed("jump"):
         if is_on_floor:
             velocity.y = JUMP_VELOCITY
+            audio_jump.play()
             is_on_floor = false
 
     # Handle character orientation

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cws5g5rs11lnf"]
+[gd_scene load_steps=6 format=3 uid="uid://cws5g5rs11lnf"]
 
 [ext_resource type="Texture2D" uid="uid://d3okqvcie1mom" path="res://assets/BACKGROUND.png" id="1_fs0ew"]
 [ext_resource type="PackedScene" uid="uid://vngkb0wit5bc" path="res://character/character.tscn" id="2_nq207"]
 [ext_resource type="PackedScene" uid="uid://3poeyamgn0vu" path="res://punching_bag/punching_bag.tscn" id="3_ksoe0"]
+[ext_resource type="AudioStream" uid="uid://c1w1ks331obsl" path="res://assets/audio/music.wav" id="4_kfiun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_se1n7"]
 size = Vector2(1920, 120)
@@ -26,3 +27,13 @@ position = Vector2(-536, -216)
 
 [node name="Node2D" parent="." instance=ExtResource("3_ksoe0")]
 position = Vector2(120, -232)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kfiun")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(64, -240)
+current = true
