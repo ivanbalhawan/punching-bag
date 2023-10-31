@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://character/CharacterBody2D.gd" id="1_yav5t"]
 [ext_resource type="Texture2D" uid="uid://do75qfhwvrexs" path="res://assets/character/sprites/idle_sprites.png" id="2_jsd5o"]
 [ext_resource type="Script" path="res://HitBox.gd" id="3_bksil"]
-[ext_resource type="Texture2D" uid="uid://cd2sraa1tb5g1" path="res://assets/character/sprites/punch_sprites.png" id="4_frn2c"]
+[ext_resource type="Texture2D" uid="uid://cd2sraa1tb5g1" path="res://assets/character/sprites/punch_sprites.png" id="4_0tebu"]
 [ext_resource type="Texture2D" uid="uid://be22qis8w6xi5" path="res://assets/character/sprites/run_sprites.png" id="5_n1gov"]
 [ext_resource type="Texture2D" uid="uid://ot3tird16kjv" path="res://assets/character/sprites/punch_effects_sprites.png" id="6_yu0tq"]
 
@@ -251,7 +251,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_frn2c")]
+"values": [ExtResource("4_0tebu")]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
