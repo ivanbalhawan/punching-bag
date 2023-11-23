@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://x2p5sdl0134u"]
+[gd_scene load_steps=11 format=3 uid="uid://x2p5sdl0134u"]
 
 [ext_resource type="Script" path="res://punching_bag/punching_bag_body.gd" id="1_e2qm2"]
 [ext_resource type="Texture2D" uid="uid://c3x8f80uoqh5d" path="res://assets/bag/sprites/bag_sprites.png" id="2_s8noj"]
 [ext_resource type="Script" path="res://HurtBox.gd" id="3_bbor4"]
 [ext_resource type="AudioStream" uid="uid://b2cpui1k0o0sn" path="res://assets/audio/bag.wav" id="4_jkk57"]
+[ext_resource type="PackedScene" uid="uid://b2yrjlexgqqvi" path="res://addons/audio-manager/AudioManager.tscn" id="4_xhdsr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qqejd"]
 friction = 0.4
@@ -82,5 +83,5 @@ libraries = {
 "": SubResource("AnimationLibrary_2c65w")
 }
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_jkk57")
+[node name="AudioManager" parent="." instance=ExtResource("4_xhdsr")]
+effects = Array[Resource]([ExtResource("4_jkk57")])
