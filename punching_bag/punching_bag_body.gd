@@ -4,7 +4,7 @@ extends RigidBody2D
 @onready var sprite = $Sprite2D
 @onready var collision_shape = $CollisionShape2D
 @export var damping_factor = 0.0
-@onready var audio_player_bag = $AudioStreamPlayer2D
+@onready var audio_manager = $AudioManager
 #test
 #func _on_timer_timeout():
 #    label.text = "KALM"
@@ -34,4 +34,4 @@ func take_hit(push_force: Vector2):
 
     apply_impulse(push_force)
     animation.play("take_punch")
-    audio_player_bag.play()
+    audio_manager.play_fx("bag")
