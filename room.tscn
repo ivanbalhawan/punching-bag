@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cws5g5rs11lnf"]
+[gd_scene load_steps=7 format=3 uid="uid://cws5g5rs11lnf"]
 
+[ext_resource type="Script" path="res://room.gd" id="1_fcdgj"]
 [ext_resource type="Texture2D" uid="uid://bmgl2nymoqsfn" path="res://assets/background.png" id="1_fs0ew"]
 [ext_resource type="PackedScene" uid="uid://vngkb0wit5bc" path="res://character/character.tscn" id="2_nq207"]
 [ext_resource type="PackedScene" uid="uid://3poeyamgn0vu" path="res://punching_bag/punching_bag.tscn" id="3_ksoe0"]
@@ -10,6 +11,7 @@ size = Vector2(1920, 120)
 
 [node name="Room" type="Node2D"]
 position = Vector2(960, 1024)
+script = ExtResource("1_fcdgj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, -472)

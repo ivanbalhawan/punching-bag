@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,6 +11,13 @@ func _process(delta):
     pass
 
 
-func _on_button_pressed():
-    var tree = get_tree()
-    print(tree.get_node_count())
+func _on_start_pressed():
+    get_tree().change_scene_to_file("res://room.tscn")
+
+
+func _on_options_pressed():
+    pass # Replace with function body.
+
+
+func _on_quit_pressed():
+    get_tree().quit()
